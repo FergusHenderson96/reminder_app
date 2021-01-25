@@ -1,5 +1,5 @@
 const yargs = require ("yargs");
-const {addNote} = require("../utils/notes.js");
+const {addNote, listNotes} = require("../utils/notes.js");
 
 const command = process.argv[2];
 console.log(process.argv);
@@ -9,9 +9,11 @@ if (command == "add") {
     console.log("adding a note");
     addNote (yargs.argv.note);
 }else if (command == "list"){
-    console.log("listing all notes")
+    console.log("listing all notes");
+    listNotes();
 }else if (command == "remove"){
     console.log("removing a note")
 }else{
     console.log("command not recognised");
 }
+

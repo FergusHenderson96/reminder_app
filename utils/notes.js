@@ -1,9 +1,5 @@
 
 
-module.exports = {
-    addNote
-}
-
 //try catch will try run code in try block, if any errors itll catch and run code in catch 
 const fs = require ("fs");
 
@@ -23,7 +19,21 @@ const loadNotes = ()=> {
     }
 };
 
-const saveNotes = allNotes => {
+const saveNotes = (allNotes) => {
     const notesJson = JSON.stringify(allNotes);
-    fs.writeFileSync("src/notes.json", notesJson)
+    fs.writeFileSync("src/notes.json", notesJson);
+};
+
+
+const listNotes = () => {
+    const allNotes = loadNotes();
+
+    allNotes.map((note, index => {
+        console.log(note.reminder.index);
+    }));
+};
+
+module.exports = {
+    addNote,
+    listNotes
 }
